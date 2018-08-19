@@ -1,5 +1,3 @@
-require 'byebug'
-
 class QueenFight
   ARRAY_OF_LETTERS = ('a'..'h').to_a.freeze
 
@@ -30,9 +28,9 @@ class QueenFight
     @first_queen[:c] - @first_queen[:r] == @second_queen[:c] - @second_queen[:r]
   end
 
-  def position_to_coords(coord)
-    column_index = ARRAY_OF_LETTERS.index(coord[0])
-    { c: column_index + 1, r: coord[-1].to_i } if !column_index.nil? &&
-                                                  coord[-1].to_i
+  def position_to_coords(pos)
+    column_index = ARRAY_OF_LETTERS.index(pos[0])
+    return { c: column_index + 1, r: pos[-1].to_i } if !column_index.nil? &&
+                                                       pos[-1].to_i.to_s == pos[-1]
   end
 end
